@@ -3,7 +3,7 @@ package com.github.tobolak.game.domain
 import com.github.tobolak.game.domain.geometry.Rectangle
 import com.github.tobolak.game.domain.geometry.Vector
 
-class FakeRenderer(val height: Int, val width: Int) : Renderer {
+class FakeRenderer(val width: Int, val height: Int) : Renderer {
     private var rows = Array(height) { Array(width) { ' ' } }
     private val gfx = object : Gfx {
         override val clip = Vector(width, height)

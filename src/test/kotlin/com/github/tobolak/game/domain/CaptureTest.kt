@@ -10,19 +10,17 @@ import org.junit.Test
 class CaptureTest {
     private val h = 6
     private val w = 8
-    private val renderer = FakeRenderer(h, w)
-    private val bounds = Vector(w, h)
+    private val renderer = FakeRenderer(w, h)
+    private val bounds = Vector(renderer.width, renderer.height)
     private val game = Game(
-            renderer,
-            SpritesRepositoryImpl(),
-            bounds,
-            Rectangle(Vector(0, 0), Vector(2, 2)),
-            Rectangle(bounds / 2, Vector(1, 1)),
-            Rectangle(bounds / Vector(2, 1) + Vector(-1, -2), Vector(2, 2)),
-            Rectangle(Vector(100, 100), Vector(1, 1))
-
+            renderer = renderer,
+            spritesRepository = SpritesRepositoryImpl(),
+            bounds = bounds,
+            playerPos = Rectangle(Vector(0, 0), Vector(2, 2)),
+            itemPos = Rectangle(bounds / 2, Vector(1, 1)),
+            boxPos = Rectangle(bounds / Vector(2, 1) + Vector(-1, -2), Vector(2, 2)),
+            npcPos = Rectangle(bounds, Vector(1, 1))
     )
-
 
     @Test
     fun approachItem() {

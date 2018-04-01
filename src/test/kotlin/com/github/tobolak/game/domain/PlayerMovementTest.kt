@@ -7,48 +7,22 @@ import org.hamcrest.Matchers.equalTo
 import org.junit.Assert.assertThat
 import org.junit.Test
 
-class MovementTest {
+class PlayerMovementTest {
     private val h = 6
     private val w = 8
-    private val renderer = FakeRenderer(h, w)
+    private val renderer = FakeRenderer(w, h)
     private val bounds = Vector(w, h)
+    private val outOfBounds = Rectangle(bounds, Vector(1, 1))
+
     private val game = Game(
             renderer = renderer,
             spritesRepository = SpritesRepositoryImpl(),
             bounds = bounds,
             playerPos = Rectangle(Vector(0, 0), Vector(2, 2)),
-            itemPos = Rectangle(bounds / 2, Vector(1, 1)),
-            boxPos = Rectangle(bounds / Vector(2, 1) + Vector(-1, -2), Vector(2, 2)),
-            npcPos = Rectangle(Vector(7, 2), Vector(1, 1))
+            itemPos = outOfBounds,
+            boxPos = outOfBounds,
+            npcPos = outOfBounds
     )
-
-    @Test
-    fun displayInitialBoard() {
-        tick(1)
-
-        assertBoard("""
-            |PP      |
-            |PP      |
-            |       G|
-            |    D   |
-            |   BB   |
-            |   BB   |
-        """)
-    }
-
-    @Test
-    fun nothingShouldHappenBeforeTick() {
-        game.moveDown()
-
-        assertBoard("""
-            |        |
-            |        |
-            |        |
-            |        |
-            |        |
-            |        |
-        """)
-    }
 
     @Test
     fun moveDown() {
@@ -58,10 +32,10 @@ class MovementTest {
         assertBoard("""
             |        |
             |PP      |
-            |PP     G|
-            |    D   |
-            |   BB   |
-            |   BB   |
+            |PP      |
+            |        |
+            |        |
+            |        |
         """)
     }
 
@@ -73,10 +47,10 @@ class MovementTest {
         assertBoard("""
             | PP     |
             | PP     |
-            |       G|
-            |    D   |
-            |   BB   |
-            |   BB   |
+            |        |
+            |        |
+            |        |
+            |        |
         """)
     }
 
@@ -88,10 +62,10 @@ class MovementTest {
         assertBoard("""
             |  PP    |
             |  PP    |
-            |       G|
-            |    D   |
-            |   BB   |
-            |   BB   |
+            |        |
+            |        |
+            |        |
+            |        |
         """)
     }
 
@@ -106,10 +80,10 @@ class MovementTest {
         assertBoard("""
             | PP     |
             | PP     |
-            |       G|
-            |    D   |
-            |   BB   |
-            |   BB   |
+            |        |
+            |        |
+            |        |
+            |        |
         """)
     }
 
@@ -124,10 +98,10 @@ class MovementTest {
         assertBoard("""
             |        |
             |        |
-            |       G|
-            |    D   |
-            |   BB PP|
-            |   BB PP|
+            |        |
+            |        |
+            |      PP|
+            |      PP|
         """)
     }
 
@@ -143,10 +117,10 @@ class MovementTest {
         assertBoard("""
             |PP      |
             |PP      |
-            |       G|
-            |    D   |
-            |   BB   |
-            |   BB   |
+            |        |
+            |        |
+            |        |
+            |        |
         """)
     }
 
@@ -162,10 +136,10 @@ class MovementTest {
         assertBoard("""
             | PP     |
             | PP     |
-            |       G|
-            |    D   |
-            |   BB   |
-            |   BB   |
+            |        |
+            |        |
+            |        |
+            |        |
         """)
     }
 
