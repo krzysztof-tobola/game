@@ -4,6 +4,7 @@ import com.github.tobolak.game.domain.geometry.Rectangle
 import com.github.tobolak.game.domain.geometry.Vector
 
 class FakeRenderer(val width: Int, val height: Int) : Renderer {
+    val bounds = Vector(width, height)
     private var rows = Array(height) { Array(width) { ' ' } }
     private val gfx = object : Gfx {
         override val clip = Vector(width, height)
@@ -20,7 +21,7 @@ class FakeRenderer(val width: Int, val height: Int) : Renderer {
 
             for (v in rectangle) {
                 if (v.y < rows.size && v.x < rows[v.y].size)
-                rows[v.y][v.x] = spriteChar
+                    rows[v.y][v.x] = spriteChar
             }
         }
     }

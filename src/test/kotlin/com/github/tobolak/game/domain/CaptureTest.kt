@@ -9,15 +9,14 @@ import org.junit.Test
 
 class CaptureTest {
     private val renderer = FakeRenderer(8, 6)
-    private val bounds = Vector(renderer.width, renderer.height)
     private val game = Game(
             renderer = renderer,
             spritesRepository = SpritesRepositoryImpl(),
-            bounds = bounds,
+            bounds = renderer.bounds,
             playerPos = Rectangle(Vector(0, 0), Vector(2, 2)),
-            itemPos = Rectangle(bounds / 2, Vector(1, 1)),
-            boxPos = Rectangle(bounds / Vector(2, 1) + Vector(-1, -2), Vector(2, 2)),
-            npcPos = Rectangle(bounds, Vector(1, 1))
+            itemPos = Rectangle(renderer.bounds / 2, Vector(1, 1)),
+            boxPos = Rectangle(renderer.bounds / Vector(2, 1) + Vector(-1, -2), Vector(2, 2)),
+            npcPos = Rectangle(renderer.bounds, Vector(1, 1))
     )
 
     @Test

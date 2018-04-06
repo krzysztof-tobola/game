@@ -9,13 +9,11 @@ import org.junit.Test
 
 class PlayerMovementTest {
     private val renderer = FakeRenderer(8, 6)
-    private val bounds = Vector(renderer.width, renderer.height)
-    private val outOfBounds = Rectangle(bounds, Vector(1, 1))
-
+    private val outOfBounds = Rectangle(renderer.bounds, Vector(1, 1))
     private val game = Game(
             renderer = renderer,
             spritesRepository = SpritesRepositoryImpl(),
-            bounds = bounds,
+            bounds = renderer.bounds,
             playerPos = Rectangle(Vector(0, 0), Vector(2, 2)),
             itemPos = outOfBounds,
             boxPos = outOfBounds,
