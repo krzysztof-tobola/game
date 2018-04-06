@@ -23,7 +23,7 @@ object App {
                 bounds = Vector(160, 90),
                 playerPos = Rectangle(Vector(0, 0), Vector(14, 14)),
                 itemPos = Rectangle(Vector(80, 45), Vector(6, 6)),
-                boxPos = Rectangle(Vector(79, 79), Vector(20, 10)),
+                boxPos = Rectangle(Vector(70, 70), Vector(20, 20)),
                 npcPos = Rectangle(Vector(100, 30), Vector(10, 10))
         )
 
