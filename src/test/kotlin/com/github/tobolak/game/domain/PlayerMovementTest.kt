@@ -8,10 +8,8 @@ import org.junit.Assert.assertThat
 import org.junit.Test
 
 class PlayerMovementTest {
-    private val h = 6
-    private val w = 8
-    private val renderer = FakeRenderer(w, h)
-    private val bounds = Vector(w, h)
+    private val renderer = FakeRenderer(8, 6)
+    private val bounds = Vector(renderer.width, renderer.height)
     private val outOfBounds = Rectangle(bounds, Vector(1, 1))
 
     private val game = Game(
@@ -90,9 +88,9 @@ class PlayerMovementTest {
     @Test
     fun moveToBottomRightBounds() {
         game.moveRight()
-        tick(w + 1)
+        tick(renderer.width + 1)
         game.moveDown()
-        tick(h + 1)
+        tick(renderer.height + 1)
 
 
         assertBoard("""
@@ -109,9 +107,9 @@ class PlayerMovementTest {
     @Test
     fun moveToUpperLeftBounds() {
         game.moveLeft()
-        tick(w + 1)
+        tick(renderer.width + 1)
         game.moveUp()
-        tick(h + 1)
+        tick(renderer.height + 1)
 
 
         assertBoard("""

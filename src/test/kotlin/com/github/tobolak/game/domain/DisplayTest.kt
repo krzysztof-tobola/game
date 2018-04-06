@@ -8,10 +8,8 @@ import org.junit.Assert.assertThat
 import org.junit.Test
 
 class DisplayTest {
-    private val h = 6
-    private val w = 8
-    private val renderer = FakeRenderer(w, h)
-    private val bounds = Vector(w, h)
+    private val renderer = FakeRenderer(8, 6)
+    private val bounds = Vector(renderer.width, renderer.height)
     private val game = Game(
             renderer = renderer,
             spritesRepository = SpritesRepositoryImpl(),
